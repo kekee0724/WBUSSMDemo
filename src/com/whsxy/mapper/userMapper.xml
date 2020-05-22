@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whsxy.dao.UserDao">
+	<select id="findUserById" resultType="com.whsxy.entity.User"
+		parameterType="int">
+		select * from user where id=#{id}
+	</select>
+	<select id="findAllUser" resultType="com.whsxy.entity.User">
+		select * from user
+	</select>
+	<delete id="dodeleteUser" parameterType="int">
+		delete from user where id=#{isd}
+	</delete>
+	<insert id="doregist" parameterType="com.whsxy.entity.User">
+		insert into user values(#{id},#{name},#{age},#{password},#{location})
+	</insert>
+	<update  id="doupdate" parameterType="com.whsxy.entity.User">
+		update user set name=#{name},password=#{password},age=#{age},location=#{location} where id=#{id}
+	</update>
+</mapper>  
